@@ -15,7 +15,7 @@ class CategoryController extends Controller
     public function index()
     {
         $categories=Category::all();
-        return view ('home.catalog', ['categories' => $categories]);
+        return view ('public.catalog', ['categories' => $categories]);
     }
 
     /**
@@ -25,7 +25,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        return view('home.createCategory');
+        return view('admin.createCategory');
     }
 
     /**
@@ -50,7 +50,7 @@ class CategoryController extends Controller
     public function show(Category $category)
     {
         $collections = $category->collections();
-        return view('home.showCategory',['collections' => $collections]);
+        return view('public.showCategory',['collections' => $collections]);
     }
 
     /**
@@ -61,7 +61,7 @@ class CategoryController extends Controller
      */
     public function edit(Category $category)
     {
-        return view ('home.editCategory', compact('category', $category));
+        return view ('admin.editCategory', compact('category', $category));
     }
 
     /**

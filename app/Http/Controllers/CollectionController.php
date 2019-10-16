@@ -15,7 +15,7 @@ class CollectionController extends Controller
     public function index()
     {
         $collections = Collection::all();
-        return view('home.listCollection', ['collections' => $collections]);
+        return view('public.listCollection', ['collections' => $collections]);
     }
 
     /**
@@ -25,7 +25,7 @@ class CollectionController extends Controller
      */
     public function create()
     {
-        return view('home.newCollection');
+        return view('self.newCollection');
 
     }
 
@@ -60,7 +60,7 @@ class CollectionController extends Controller
     public function show(Collection $collection)
     {
         $objects = $collection->objects();
-        return view('home.showCollection',['objects' => $objects]);
+        return view('self.showCollection',['objects' => $objects]);
     }
 
     /**
@@ -72,7 +72,7 @@ class CollectionController extends Controller
     public function edit(Collection $collection)
     {
         $categories = Category::all();
-        return view('home.updateCollection', ['collection' => $collection,'categories' => $categories]);
+        return view('self.updateCollection', ['collection' => $collection,'categories' => $categories]);
     }
 
     /**
