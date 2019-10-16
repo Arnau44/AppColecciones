@@ -22,18 +22,18 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/home/{Category}/collections', 'CategoryController@show')->name('category.show');
 Route::get('/home', 'CategoryController@index')->name('home');
-Route::get('/home/Category/create', 'CategoryController@create');
-Route::post('/home', 'CategoryController@store');
-Route::get('/home/Category/{Category}/edit', 'CategoryController@edit');
-Route::put('/home/Category/{Category}', 'CategoryController@update');
-Route::delete('/home/{Category}', 'CategoryController@destroy');
+Route::get('/home/Category/create', 'CategoryController@create')->name('category.create');
+Route::post('/home', 'CategoryController@store')->name('category.store');
+Route::get('/home/Category/{Category}/edit', 'CategoryController@edit')->name('category.edit');
+Route::put('/home/Category/{Category}', 'CategoryController@update')->name('category.update');
+Route::delete('/home/{Category}', 'CategoryController@destroy')->name('category.destroy');
 
 // COLLECTION ROUTES
 
-Route::get('/home/Collection', 'CollectionController@index');
+Route::get('/home/Collection', 'CollectionController@index')->name('collection.index');
 Route::get('/home/Collection/{Collection}', 'CollectionController@show')->name('collection.show');
-Route::get('/home/Collection/{Collection}/edit', 'CollectionController@edit');
-Route::put('/home/Collection/{Collection}', 'CollectionController@update');
-Route::get('/home/Collection/crear', 'CollectionController@create');
-Route::delete('/home/Collection/{Collection}', 'CollectionController@destroy');
-Route::post('/home/Collection', 'CollectionController@store');
+Route::get('/home/Collection/{Collection}/edit', 'CollectionController@edit')->name('collection.edit');
+Route::put('/home/Collection/{Collection}', 'CollectionController@update')->name('collection.update');
+Route::get('/home/Collection/crear', 'CollectionController@create')->name('collection.create');
+Route::delete('/home/Collection/{Collection}', 'CollectionController@destroy')->name('collection.destroy');
+Route::post('/home/Collection', 'CollectionController@store')->name('collection.store');
