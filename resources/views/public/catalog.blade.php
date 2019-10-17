@@ -6,7 +6,7 @@
         @foreach ($categories as $category)
             <button name="{{$category->name}}" 
                     title="{{$category->name}}" 
-                    onclick="toggleForm(['{{$category->name}}'])">
+                    onclick="hideExcept(['{{$category->name}}'],'.category')">
             <img/>
             </button>
         @endforeach
@@ -16,7 +16,7 @@
 
         @foreach ($categories as $category)
         
-        <ul id="{{$category->name}}" class='card hidden'>
+        <ul id="{{$category->name}}" class='category card'>
             <h2>{{$category->name}}</h2>
             @foreach ($category->collections as $collection)
             <li class="card">

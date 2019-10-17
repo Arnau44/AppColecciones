@@ -79,12 +79,29 @@
 </body>
 </html>
 <script>
-    function toggleForm(tags) {
+    
+    function hiddeAll(className) {
+        const itemsArray = document.querySelectorAll(className);
+        itemsArray.forEach(item => {
+            item.classList.add('hidden')
+        });
+    }
+    function toggleHide(tags) {
         
         tags.forEach(tag => {
             let formResponse = document.getElementById(tag);
             formResponse.classList.toggle('hidden');
         });
+       
+    }
+    function hideExcept(tags,except) {
+        hiddeAll(except)
+        
+        tags.forEach(tag => {
+            let formResponse = document.getElementById(tag);
+            formResponse.classList.toggle('hidden');
+        });
+
        
     }
 </script>
