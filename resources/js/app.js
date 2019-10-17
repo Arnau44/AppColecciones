@@ -6,6 +6,10 @@
 
 require('./bootstrap');
 
+// import toggleForm from 'showElements';
+
+require('./showElements');
+
 window.Vue = require('vue');
 
 /**

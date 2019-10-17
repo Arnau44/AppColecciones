@@ -89,7 +89,7 @@ class CollectionController extends Controller
             $newimage->storeImageCollection($request, $collection->id);
             }
             $collection->update($request->all());
-        return redirect('home/'.'MyCollections');
+        return redirect('home/'.'myCollections');
     }
 
     /**
@@ -101,6 +101,6 @@ class CollectionController extends Controller
     public function destroy(Collection $collection)
     {
         $collection->delete();
-        return redirect('home'.'/MyCollections');
+        return redirect('home'.'/myCollections');
     }
 }
