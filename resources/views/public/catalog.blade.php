@@ -8,20 +8,22 @@
                 <div class="card-header container-fluid">
                 <div class="row justify-content-center">
                     @foreach ($categories as $category)
-                        <button name="{{$category->name}}" title="{{$category->name}}" onclick="toggleForm()">
+                        <button name="{{$category->name}}" title="{{$category->name}}" onclick="toggleForm(['{{$category->name}}'])">
                         <img/>
                         </button>
                     @endforeach
                 <div class="card-body container-fluid">
                     <div class="row justify-content-center">
                     @foreach ($categories as $category)
+                    <div id="{{$category->name}}">
                     @foreach ($category->collections as $collection)
-                    <div class="col">
+                    <div>
                         <img/>
                         <p>{{$collection->name}}</p>
                         <p>{{$collection->description}}</p>
                     </div>
                     @endforeach
+                    </div>
                     @endforeach
                     </div>
                     </div>
