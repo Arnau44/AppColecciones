@@ -12,8 +12,8 @@ class CategoriesSeeder extends Seeder
     public function run()
     {
         DB::table('categories')->insert([
-            'name' => 'Juegos de Mesa',
-            'description' => 'Descripción de Juegos de Mesa',
+            'name' => 'Funkos',
+            'description' => 'Descripción de Funkos',
             
         ]);
         DB::table('categories')->insert([
