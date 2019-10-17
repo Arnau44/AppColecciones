@@ -15,7 +15,7 @@ class CollectionController extends Controller
     public function index()
     {
         $collections = Collection::all();
-        return view('public.listCollection', ['collections' => $collections]);
+        return view('self.Collections', ['collections' => $collections]);
     }
 
     /**
@@ -48,7 +48,7 @@ class CollectionController extends Controller
         $newimage->storeImagecollection($request, $collection->id);
         }
 
-        return redirect('home/'.$collection->category_id.'/collections');
+        return redirect('home/collections');
     }
 
     /**
@@ -59,8 +59,8 @@ class CollectionController extends Controller
      */
     public function show(Collection $collection)
     {
-        $objects = $collection->objects();
-        return view('self.showCollection',['objects' => $objects]);
+        $Items = $collection->items();
+        return view('self.Collection',['objects' => $Items]);
     }
 
     /**
@@ -89,7 +89,7 @@ class CollectionController extends Controller
             $newimage->storeImageCollection($request, $collection->id);
             }
             $collection->update($request->all());
-        return redirect('home/'.'myCollections');
+        return redirect('home/'.'Collections');
     }
 
     /**
@@ -101,6 +101,6 @@ class CollectionController extends Controller
     public function destroy(Collection $collection)
     {
         $collection->delete();
-        return redirect('home'.'/myCollections');
+        return redirect('home/Collections');
     }
 }
