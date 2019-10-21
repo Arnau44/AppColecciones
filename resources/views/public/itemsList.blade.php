@@ -22,7 +22,7 @@
             @method('DELETE') 
                 <input type="submit" value="X">
             </form>
-            <a href="">ver</a>
+            <a href="/home/collection/item/{{$item->id}}">ver</a>
             </li>   
         @endforeach
     </ul>

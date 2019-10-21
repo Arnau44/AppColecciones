@@ -49,7 +49,7 @@ class ItemController extends Controller
      */
     public function show(Item $item)
     {
-        //
+        return view ('public.itemShow',['item' => $item]);
     }
 
     /**

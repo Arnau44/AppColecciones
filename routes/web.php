@@ -42,7 +42,7 @@ Route::post('/home/Collection', 'CollectionController@store')->name('collection.
 
 
 Route::get('/home/items','ItemController@index');
-Route::get('/home/items','ItemController@index');
+Route::get('/home/collection/item/{item}','ItemController@show');
 Route::delete('/home/item/{item}','ItemController@destroy');
 Route::post('/home/item/create','ItemController@store');
 
