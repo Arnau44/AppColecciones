@@ -37,3 +37,9 @@ Route::put('/home/Collection/{Collection}', 'CollectionController@update')->name
 Route::get('/home/Collection/crear', 'CollectionController@create')->name('collection.create');
 Route::delete('/home/Collection/{Collection}', 'CollectionController@destroy')->name('collection.destroy');
 Route::post('/home/Collection', 'CollectionController@store')->name('collection.store');
+
+// ITEM ROUTES
+
+Route::get('/home/items','ItemController@index');
+Route::delete('/home/item/{item}','ItemController@destroy');
+Route::post('/home/item/create','ItemController@store');
