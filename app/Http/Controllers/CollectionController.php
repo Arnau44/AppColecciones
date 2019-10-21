@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Collection;
+use App\Category;
 use Illuminate\Http\Request;
 
 class CollectionController extends Controller
@@ -14,8 +15,9 @@ class CollectionController extends Controller
      */
     public function index()
     {
-        $collections = Collection::all();
-        return view('self.Collections', ['collections' => $collections]);
+        $collections=Collection::all();
+        $categories=Category::all();
+        return view('self.Collections', ['collections' => $collections, 'categories' => $categories]);
     }
 
     /**
@@ -25,8 +27,7 @@ class CollectionController extends Controller
      */
     public function create()
     {
-        return view('self.newCollection');
-
+        //
     }
 
     /**
@@ -41,14 +42,14 @@ class CollectionController extends Controller
         $collection->name = $request->name;
         $collection->category_id = $request->category_id;
         $collection->description = $request->description;
-        $collection->user_id = Auth::user()->id;
+        $collection->user_id = '1';
         $collection->save();
         if($request->image){
         $newimage = new Image();
         $newimage->storeImagecollection($request, $collection->id);
         }
 
-        return redirect('home/collections');
+        return back();
     }
 
     /**
@@ -59,8 +60,7 @@ class CollectionController extends Controller
      */
     public function show(Collection $collection)
     {
-        $Items = $collection->items();
-        return view('self.Collection',['objects' => $Items]);
+        //
     }
 
     /**
@@ -71,8 +71,7 @@ class CollectionController extends Controller
      */
     public function edit(Collection $collection)
     {
-        $categories = Category::all();
-        return view('self.updateCollection', ['collection' => $collection,'categories' => $categories]);
+        //
     }
 
     /**
@@ -101,6 +100,6 @@ class CollectionController extends Controller
     public function destroy(Collection $collection)
     {
         $collection->delete();
-        return redirect('home/Collections');
+        return redirect('/home'.'/Collections');
     }
 }

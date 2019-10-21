@@ -2,12 +2,12 @@
 
 @section ('content')
             <div class="card">
-                    @foreach ($Collection->Items as $Item)
+                    @foreach ($collection->items as $item)
                     <div id="{{$collection->id}}">
                         <img/>
-                        <p>{{$Item->name}}</p>
-                        <p>{{$Item->description}}</p>
-                        <form action="/home/Collection/{{$Item->id}}" method="post">
+                        <p>{{$item->name}}</p>
+                        <p>{{$item->description}}</p>
+                        <form action="/home/Collection/{{$item->id}}" method="post">
                             @csrf
                             @method('DELETE') 
                             <input type="submit" value="ELIMINAR" class = "btn btn-outline-danger mt-2">

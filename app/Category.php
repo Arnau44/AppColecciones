@@ -3,6 +3,8 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Collection;
+use App\Image;
 
 class Category extends Model
 {
