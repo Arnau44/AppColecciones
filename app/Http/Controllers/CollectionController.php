@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Collection;
+use App\Image;
 use Illuminate\Http\Request;
 
 class CollectionController extends Controller
@@ -45,7 +46,7 @@ class CollectionController extends Controller
         $collection->save();
         if($request->image){
         $newimage = new Image();
-        $newimage->storeImagecollection($request, $collection->id);
+        $newimage->storeImageCollection($request, $collection->id);
         }
 
         return redirect('home/collections');

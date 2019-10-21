@@ -18,14 +18,17 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+// ADMIN ROUTES
+
+Route::get('/admin/Category/', 'CategoryController@adminIndex');
+
 // CATEGORY ROUTES
 
 Route::get('/home', 'CategoryController@index')->name('home');
-Route::get('/home/Category/create', 'CategoryController@create')->name('category.create');
-Route::post('/home', 'CategoryController@store')->name('category.store');
-Route::get('/home/Category/{Category}/edit', 'CategoryController@edit')->name('category.edit');
+Route::post('/home/Category', 'CategoryController@store')->name('category.store');
 Route::put('/home/Category/{Category}', 'CategoryController@update')->name('category.update');
-Route::delete('/home/{Category}', 'CategoryController@destroy')->name('category.destroy');
+Route::delete('/home/Category/{Category}/delete', 'CategoryController@destroy')->name('category.destroy');
 
 // COLLECTION ROUTES
 
@@ -46,3 +49,6 @@ Route::get('/home/collection/item/{item}','ItemController@show');
 Route::delete('/home/item/{item}','ItemController@destroy');
 Route::post('/home/item/create','ItemController@store');
 
+// IMAGE ROUTE
+
+Route::delete('/home/image/{image}');

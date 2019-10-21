@@ -36,9 +36,15 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request, ['id', 'name'=>'required', 'description'=>'required']);
-        Category::create($request->all());
-        return redirect('/home');
+        $category = new Category();
+        $category->name = $request->name;
+        $category->description = $request->description;
+        $category->save();
+        if($request->image){
+        $newimage = new Image();
+        $newimage->storeImageCategory($request, $category->id);
+        }
+        return back();
     }
 
     /**
@@ -74,7 +80,7 @@ class CategoryController extends Controller
     public function update(Request $request, Category $category)
     {
         $category->update($request->all());
-        return redirect('/home');
+        return back();
     }
 
     /**
@@ -86,6 +92,12 @@ class CategoryController extends Controller
     public function destroy(Category $category)
     {
         $category->delete();
-        return redirect('/home');
+        return back();
+    }
+
+    public function adminIndex()
+    {
+        $categories=Category::all();
+        return view ('admin.categories', ['categories' => $categories]);
     }
 }
