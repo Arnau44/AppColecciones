@@ -20,7 +20,6 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 // CATEGORY ROUTES
 
-Route::get('/home/{Category}/collections', 'CategoryController@show')->name('category.show');
 Route::get('/home', 'CategoryController@index')->name('home');
 Route::get('/home/Category/create', 'CategoryController@create')->name('category.create');
 Route::post('/home', 'CategoryController@store')->name('category.store');
@@ -29,6 +28,7 @@ Route::put('/home/Category/{Category}', 'CategoryController@update')->name('cate
 Route::delete('/home/{Category}', 'CategoryController@destroy')->name('category.destroy');
 
 // COLLECTION ROUTES
+
 
 Route::get('/home/Collection', 'CollectionController@index')->name('collection.index');
 Route::get('/home/Collection/{Collection}', 'CollectionController@show')->name('collection.show');
@@ -43,3 +43,4 @@ Route::post('/home/Collection', 'CollectionController@store')->name('collection.
 Route::get('/home/items','ItemController@index');
 Route::delete('/home/item/{item}','ItemController@destroy');
 Route::post('/home/item/create','ItemController@store');
+
