@@ -7,7 +7,7 @@
     <input type="text" name="name">
     <label for="name">Name</label>
     <textarea name="description" id="" cols="40" rows="3"></textarea>
-    
+    <input type="hidden" name="collection_id" value="{{$collection->id}}">
     <input type="submit" value="Enviar">
     </form>
     <h1>{{$collection->name}}</h1>
