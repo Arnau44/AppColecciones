@@ -23,6 +23,8 @@
                 <img/>
                 <p>{{$collection->name}}</p>
                 <p>{{$collection->description}}</p>
+                <p>{{$collection->user->name}}</p>
+                <a href="/home/collection/{{$collection->id}}">ver</a>
             </li>
         
             @endforeach

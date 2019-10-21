@@ -60,6 +60,12 @@
                                                      document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
                                     </a>
+                                    <a class="dropdown-item" href="{{ route('home') }}">
+                                        Home
+                                    </a>
+                                    <a class="dropdown-item" href="{{ route('logout') }}">
+                                        Mis Colecciones
+                                    </a>
 
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                         @csrf

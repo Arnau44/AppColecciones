@@ -31,7 +31,7 @@ Route::delete('/home/{Category}', 'CategoryController@destroy')->name('category.
 
 
 Route::get('/home/Collection', 'CollectionController@index')->name('collection.index');
-Route::get('/home/Collection/{Collection}', 'CollectionController@show')->name('collection.show');
+Route::get('/home/collection/{collection}', 'CollectionController@show')->name('collection.show');
 Route::get('/home/Collection/{Collection}/edit', 'CollectionController@edit')->name('collection.edit');
 Route::put('/home/Collection/{Collection}', 'CollectionController@update')->name('collection.update');
 Route::get('/home/Collection/crear', 'CollectionController@create')->name('collection.create');
@@ -40,6 +40,8 @@ Route::post('/home/Collection', 'CollectionController@store')->name('collection.
 
 // ITEM ROUTES
 
+
+Route::get('/home/items','ItemController@index');
 Route::get('/home/items','ItemController@index');
 Route::delete('/home/item/{item}','ItemController@destroy');
 Route::post('/home/item/create','ItemController@store');

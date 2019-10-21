@@ -59,8 +59,10 @@ class CollectionController extends Controller
      */
     public function show(Collection $collection)
     {
-        $Items = $collection->items();
-        return view('self.Collection',['objects' => $Items]);
+        
+        $items = $collection->items;
+        return view('public.itemsList',['collection' => $collection,
+                                        'items' => $items]);
     }
 
     /**
