@@ -102,7 +102,8 @@ class CollectionController extends Controller
      */
     public function destroy(Collection $collection)
     {
+        
         $collection->delete();
-        return redirect('home/Collections');
+        return redirect()->back();
     }
 }

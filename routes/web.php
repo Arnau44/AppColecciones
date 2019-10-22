@@ -17,7 +17,7 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+
 // CATEGORY ROUTES
 
 Route::get('/home', 'CategoryController@index')->name('home');
@@ -37,6 +37,11 @@ Route::put('/home/Collection/{Collection}', 'CollectionController@update')->name
 Route::get('/home/Collection/crear', 'CollectionController@create')->name('collection.create');
 Route::delete('/home/Collection/{Collection}', 'CollectionController@destroy')->name('collection.destroy');
 Route::post('/home/Collection', 'CollectionController@store')->name('collection.store');
+
+
+//COLLECTION PRIVATE ROUTES
+Route::get('/my-collections', 'CollectionController@index');
+Route::delete('/my-collections/{collection}', 'CollectionController@destroy');
 
 // ITEM ROUTES
 
