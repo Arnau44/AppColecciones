@@ -37,3 +37,9 @@ Route::put('/home/Collection/{Collection}', 'CollectionController@update')->name
 Route::get('/home/Collection/crear', 'CollectionController@create')->name('collection.create');
 Route::delete('/home/Collection/{Collection}', 'CollectionController@destroy')->name('collection.destroy');
 Route::post('/home/Collection', 'CollectionController@store')->name('collection.store');
+
+//COMMENTS ROUTES
+Route::post('/home/comment', 'CommentController@store');
+Route::delete('/home/comment/{comment}', 'CommentController@destroy');
+Route::get('/home/comment/{comment}/edit', 'CommentController@edit');
+Route::put('/home/comment/{comment}', 'CommentController@update');
