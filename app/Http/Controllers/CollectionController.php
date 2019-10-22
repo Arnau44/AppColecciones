@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Collection;
+use App\User;
 use Illuminate\Http\Request;
 
 class CollectionController extends Controller
@@ -12,10 +13,11 @@ class CollectionController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function indexAuthor()
     {
-        $collections = Collection::all();
-        return view('self.Collections', ['collections' => $collections]);
+
+        //$collections = Collection::all();
+        return view('self.Collections');
     }
 
     /**
@@ -25,7 +27,7 @@ class CollectionController extends Controller
      */
     public function create()
     {
-        return view('self.newCollection');
+        return view('self.NewCollection');
 
     }
 
@@ -59,7 +61,7 @@ class CollectionController extends Controller
      */
     public function show(Collection $collection)
     {
-        
+
         $items = $collection->items;
         return view('public.itemsList',['collection' => $collection,
                                         'items' => $items]);
@@ -102,7 +104,7 @@ class CollectionController extends Controller
      */
     public function destroy(Collection $collection)
     {
-        
+
         $collection->delete();
         return redirect()->back();
     }

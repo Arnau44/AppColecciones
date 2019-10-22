@@ -40,8 +40,9 @@ Route::post('/home/Collection', 'CollectionController@store')->name('collection.
 
 
 //COLLECTION PRIVATE ROUTES
-Route::get('/my-collections', 'CollectionController@index');
-Route::delete('/my-collections/{collection}', 'CollectionController@destroy');
+Route::get('/my_collections', 'CollectionController@indexAuthor');
+Route::delete('/my_collections/{collection}', 'CollectionController@destroy');
+Route::get('/new_collection', 'CollectionController@create');
 
 // ITEM ROUTES
 
