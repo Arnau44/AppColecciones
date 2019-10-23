@@ -14,6 +14,9 @@ class Collection extends Model implements Searchable
     {
         return $this->hasMany(Item::class);
     }
+    public function comments(){
+        return $this->hasMany(Comment::class);
+    }
     public function certificate()
     {
         return $this->hasOne(Certificate::class);

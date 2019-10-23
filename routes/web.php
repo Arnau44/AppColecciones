@@ -52,3 +52,8 @@ Route::get('/home/collection/item/{item}','ItemController@show');
 Route::delete('/home/item/{item}','ItemController@destroy');
 Route::post('/home/item/create','ItemController@store');
 
+//COMMENTS ROUTES
+Route::post('/home/comment', 'CommentController@store');
+Route::delete('/home/comment/{comment}', 'CommentController@destroy');
+Route::get('/home/comment/{comment}/edit', 'CommentController@edit');
+Route::put('/home/comment/{comment}', 'CommentController@update');
