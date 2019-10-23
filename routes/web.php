@@ -30,10 +30,8 @@ Route::delete('/home/{Category}', 'CategoryController@destroy')->name('category.
 
 // COLLECTION ROUTES
 
-Route::get('/home/Collection', 'CollectionController@index')->name('collection.index');
-Route::get('/home/Collection/{Collection}', 'CollectionController@show')->name('collection.show');
-Route::get('/home/Collection/{Collection}/edit', 'CollectionController@edit')->name('collection.edit');
-Route::put('/home/Collection/{Collection}', 'CollectionController@update')->name('collection.update');
-Route::get('/home/Collection/crear', 'CollectionController@create')->name('collection.create');
-Route::delete('/home/Collection/{Collection}', 'CollectionController@destroy')->name('collection.destroy');
-Route::post('/home/Collection', 'CollectionController@store')->name('collection.store');
+Route::get('/home/Collections', 'CollectionController@index')->name('collection.index');
+Route::get('/home/Collections/{Collection}', 'CollectionController@show')->name('collection.show');
+Route::put('/home/Collections/{Collection}', 'CollectionController@update')->name('collection.update');
+Route::delete('/home/Collections/{Collection}', 'CollectionController@destroy')->name('collection.destroy');
+Route::post('/home/Collections', 'CollectionController@store')->name('collection.store');

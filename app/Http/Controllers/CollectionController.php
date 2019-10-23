@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Collection;
+use App\Category;
 use Illuminate\Http\Request;
 
 class CollectionController extends Controller
@@ -15,7 +16,8 @@ class CollectionController extends Controller
     public function index()
     {
         $collections = Collection::all();
-        return view('public.listCollection', ['collections' => $collections]);
+        $categories = Category::all();
+        return view('self.Collections', ['collections' => $collections, 'categories' => $categories]);
     }
 
     /**
@@ -25,8 +27,7 @@ class CollectionController extends Controller
      */
     public function create()
     {
-        return view('self.newCollection');
-
+        //
     }
 
     /**
@@ -41,15 +42,15 @@ class CollectionController extends Controller
         $collection->name = $request->name;
         $collection->category_id = $request->category_id;
         $collection->description = $request->description;
-        $collection->user_id = Auth::user()->id;
+        $collection->user_id = '1';
         $collection->save();
         if($request->image){
         $newimage = new Image();
         $newimage->storeImagecollection($request, $collection->id);
-        }
-
-        return redirect('home/'.$collection->category_id.'/collections');
     }
+    return back();
+
+}
 
     /**
      * Display the specified resource.
@@ -59,8 +60,7 @@ class CollectionController extends Controller
      */
     public function show(Collection $collection)
     {
-        $objects = $collection->objects();
-        return view('self.showCollection',['objects' => $objects]);
+        //
     }
 
     /**
@@ -71,8 +71,7 @@ class CollectionController extends Controller
      */
     public function edit(Collection $collection)
     {
-        $categories = Category::all();
-        return view('self.updateCollection', ['collection' => $collection,'categories' => $categories]);
+        //
     }
 
     /**
@@ -84,12 +83,8 @@ class CollectionController extends Controller
      */
     public function update(Request $request, Collection $collection)
     {
-        if($request->image){
-            $newimage = new Image();
-            $newimage->storeImageCollection($request, $collection->id);
-            }
-            $collection->update($request->all());
-        return redirect('home/'.'myCollections');
+        $collection->update($request->all());
+        return redirect(back());
     }
 
     /**
@@ -101,6 +96,6 @@ class CollectionController extends Controller
     public function destroy(Collection $collection)
     {
         $collection->delete();
-        return redirect('home'.'/myCollections');
+        return redirect('/home'.'/Collections');
     }
 }
