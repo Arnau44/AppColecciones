@@ -10,9 +10,12 @@ class Collection extends Model implements Searchable
 {
     protected $fillable = ['id', 'name', 'description', 'user_id', 'category_id', 'certificate_id', 'img_id'];
 
-    public function objects()
+    public function items()
     {
-        return $this->hasMany(Objects::class);
+        return $this->hasMany(Item::class);
+    }
+    public function comments(){
+        return $this->hasMany(Comment::class);
     }
     public function certificate()
     {

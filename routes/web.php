@@ -18,6 +18,7 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
 // CATEGORY ROUTES
 
 Route::get('/home/{Category}/collections', 'CategoryController@show')->name('category.show');
@@ -31,7 +32,7 @@ Route::delete('/home/{Category}', 'CategoryController@destroy')->name('category.
 // COLLECTION ROUTES
 
 Route::get('/home/Collection', 'CollectionController@index')->name('collection.index');
-Route::get('/home/Collection/{Collection}', 'CollectionController@show')->name('collection.show');
+Route::get('/home/Collection/prueba', 'CollectionController@show')->name('collection.show');
 Route::get('/home/Collection/{Collection}/edit', 'CollectionController@edit')->name('collection.edit');
 Route::put('/home/Collection/{Collection}', 'CollectionController@update')->name('collection.update');
 Route::get('/home/Collection/crear', 'CollectionController@create')->name('collection.create');

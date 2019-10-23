@@ -38,9 +38,9 @@ public function store(Request $request)
 {
     $comment = new Comment;
     $comment->user_id = Auth::user()->id;
-    $response->content = $request->content;
-    $response->collection_id = $request->collection_id;
-    $response->save();
+    $comment->content = $request->content;
+    $comment->collection_id = $request->collection_id;
+    $comment->save();
     return redirect()->back();
 }
 
