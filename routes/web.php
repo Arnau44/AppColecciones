@@ -52,3 +52,9 @@ Route::get('/home/collection/item/{item}','ItemController@show');
 Route::delete('/home/item/{item}','ItemController@destroy');
 Route::post('/home/item/create','ItemController@store');
 
+// API COLLECTION ROUTES
+
+Route::post('/api/collections', 'CollectionController@apiStore');
+Route::get('/api/my_collections', 'CollectionController@apiIndexAuth');
+Route::get('/api/my_collections/{collection}', 'CollectionController@apiShow');
+Route::delete('/api/my_collections/delete/{collection}', 'CollectionController@apiDelete');
