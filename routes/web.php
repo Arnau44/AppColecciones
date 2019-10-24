@@ -26,9 +26,9 @@ Route::get('/admin/Category/', 'CategoryController@adminIndex');
 // CATEGORY ROUTES
 
 Route::get('/home', 'CategoryController@index')->name('home');
-Route::post('/home/Category', 'CategoryController@store')->name('category.store');
-Route::put('/home/Category/{Category}', 'CategoryController@update')->name('category.update');
-Route::delete('/home/Category/{Category}/delete', 'CategoryController@destroy')->name('category.destroy');
+Route::post('/admin/category/store', 'CategoryController@store')->name('category.store');
+Route::put('/admin/category/{category}', 'CategoryController@update')->name('category.update');
+Route::delete('/admin/category/delete/{category}', 'CategoryController@destroy');
 
 // COLLECTION ROUTES
 

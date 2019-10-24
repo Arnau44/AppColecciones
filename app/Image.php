@@ -52,8 +52,6 @@ class Image extends Model
         //indicamos que queremos guardar un nuevo archivo en el disco local
         Storage::disk('local')->put($nombrearchivo,  \File::get($image));
 
-        $public_path = storage_path();
-
         $newimage->name = $nombrearchivo;
         $newimage->category_id = $id;
         $newimage->save();
@@ -88,8 +86,6 @@ class Image extends Model
 
         //indicamos que queremos guardar un nuevo archivo en el disco local
         Storage::disk('local')->put($nombrearchivo,  \File::get($image));
-
-        $public_path = storage_path();
 
         $newimage->name = $nombrearchivo;
         $newimage->collection_id = $id;
@@ -126,8 +122,6 @@ class Image extends Model
         //indicamos que queremos guardar un nuevo archivo en el disco local
         Storage::disk('local')->put($nombrearchivo,  \File::get($image));
 
-        $public_path = storage_path();
-
         $newimage->name = $nombrearchivo;
         $newimage->item_id = $id;
         $newimage->save();
@@ -163,8 +157,6 @@ class Image extends Model
         //indicamos que queremos guardar un nuevo archivo en el disco local
         Storage::disk('local')->put($nombrearchivo,  \File::get($image));
 
-        $public_path = storage_path();
-
         $newimage->name = $nombrearchivo;
         $newimage->certificate_id = $id;
         $newimage->save();
@@ -199,8 +191,6 @@ class Image extends Model
 
         //indicamos que queremos guardar un nuevo archivo en el disco local
         Storage::disk('local')->put($nombrearchivo,  \File::get($image));
-
-        $public_path = storage_path();
 
         $newimage->name = $nombrearchivo;
         $newimage->user_id = $id;

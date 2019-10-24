@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Category;
+use App\Image;
 use Illuminate\Http\Request;
 
 class CategoryController extends Controller
@@ -67,7 +68,7 @@ class CategoryController extends Controller
      */
     public function edit(Category $category)
     {
-        return view ('admin.editCategory', compact('category', $category));
+        //
     }
 
     /**
@@ -79,6 +80,10 @@ class CategoryController extends Controller
      */
     public function update(Request $request, Category $category)
     {
+        if($request->image){
+        $newimage = new Image();
+        $newimage->storeImageCategory($request, $category->id);
+        }
         $category->update($request->all());
         return back();
     }

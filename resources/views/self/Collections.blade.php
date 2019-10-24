@@ -54,7 +54,7 @@
                         <label>Description</label>
                         <textarea name="description"></textarea>
                         <label>Image</label>
-                        <input type="file" name="file">
+                        <input type="file" name="image">
                         <input type="submit" value="CREAR" class = "btn btn-outline-success">
                     </form>
                     <button id="" onclick="toggleHide(['crear'])">CREAR</button>
