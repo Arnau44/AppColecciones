@@ -8,11 +8,7 @@
                         <img/>
                         <p>{{$collection->name}}</p>
                         <p>{{$collection->description}}</p>
-<<<<<<< HEAD
                         <form action="/my_collections/{{$collection->id}}" method="post">
-=======
-                        <form action="/home/Collections/{{$collection->id}}" method="POST">
->>>>>>> dev5
                             @csrf
                             @method('DELETE')
                             <input type="submit" value="ELIMINAR" class = "btn btn-outline-danger mt-2">

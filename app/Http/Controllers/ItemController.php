@@ -36,8 +36,16 @@ class ItemController extends Controller
      */
     public function store(Request $request)
     {
-        
-        Item::create($request->all());
+        $item = new Item();
+        $item->name = $request->name;
+        $item->colection_id = $request->colection_id;
+        $item->description = $request->description;
+        $item->user_id = Auth::user()->id;
+        $item->save();
+        if($request->image){
+            $newimage = new Image();
+            $newimage->storeImageItem($request, $item->id);
+            }
         return redirect()->back();   
     }
 
@@ -72,7 +80,13 @@ class ItemController extends Controller
      */
     public function update(Request $request, Item $item)
     {
-        //
+        if($request->image){
+            $newimage = new Image();
+            $newimage->storeImageItem($request, $item->id);
+            }
+            $item->update($request->all());
+        return redirect()->back();
+
     }
 
     /**

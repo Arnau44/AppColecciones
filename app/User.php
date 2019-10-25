@@ -37,6 +37,10 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    public function categories() {
+        return $this->belongsToMany(Category::class);
+    }
+
     public function collections() {
         return $this->hasMany(Collection::class);
     }

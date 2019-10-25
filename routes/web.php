@@ -17,6 +17,10 @@ Route::get('/', function () {
 
 Auth::routes();
 
+Route::get('/form', function(){
+    return view('public.interestForm');
+});
+
 // ADMIN ROUTES
 
 Route::get('/admin/Category/', 'CategoryController@adminIndex');
