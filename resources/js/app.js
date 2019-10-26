@@ -21,6 +21,13 @@ window.Vue = require('vue');
 
 Vue.component('new-collection', require('./components/NewCollectionComponent.vue').default);
 Vue.component('new-item', require('./components/NewItemComponent.vue').default);
+Vue.component('collection-card', require('./components/CollectionCardComponent.vue').default);
+Vue.component('collection-list', require('./components/CollectionListComponent.vue').default);
+Vue.component('category-list', require('./components/CategoryListComponent.vue').default);
+Vue.component('category-item', require('./components/CategoryItemComponent.vue').default);
+Vue.component('home-page', require('./components/HomePageComponent.vue').default);
+Vue.component('love-button', require('./components/buttons/LoveComponent.vue').default);
+Vue.component('category-selection', require('./components/CategorySelection.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

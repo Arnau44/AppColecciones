@@ -41,7 +41,7 @@ Route::post('/home/Collection', 'CollectionController@store')->name('collection.
 
 
 //COLLECTION PRIVATE ROUTES
-Route::get('/my_collections', 'CollectionController@indexAuthor');
+Route::get('/my_collections', 'CollectionController@indexAuthor')->middleware('auth');
 Route::delete('/my_collections/{collection}', 'CollectionController@destroy');
 Route::get('/new_collection', 'CollectionController@create');
 
@@ -62,3 +62,11 @@ Route::post('/api/collections', 'CollectionController@apiStore');
 Route::get('/api/my_collections', 'CollectionController@apiIndexAuth');
 Route::get('/api/my_collections/{collection}', 'CollectionController@apiShow');
 Route::delete('/api/my_collections/delete/{collection}', 'CollectionController@apiDelete');
+
+//VUE PUBLIC ROUTE
+
+Route::get('/app', 'AppController@vueHome');
+
+
+Route::get('/api/home', 'AppController@apiHome');
+Route::get('/api/category/collections/{category}', 'AppController@apiCollectionsByCotegory');

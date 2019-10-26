@@ -8,11 +8,11 @@
                         <img/>
                         <p>{{$collection->name}}</p>
                         <p>{{$collection->description}}</p>
-<<<<<<< HEAD
+
                         <form action="/my_collections/{{$collection->id}}" method="post">
-=======
-                        <form action="/home/Collections/{{$collection->id}}" method="POST">
->>>>>>> dev5
+
+
+
                             @csrf
                             @method('DELETE')
                             <input type="submit" value="ELIMINAR" class = "btn btn-outline-danger mt-2">
@@ -31,7 +31,7 @@
                             <input type="text" name="name" value="{{$collection->name}}">
                             <textarea class="form-control" required id="description" name="description" rows="3">{{$collection->description}}</textarea>
                         </div>
-                        <a id="collection_cancel_button-{{$collection->id}}" onclick="toggleHide(['collection_edit_form-{{$collection->id}}','collection_edit_button-{{$collection->id}}',])" 
+                        <a id="collection_cancel_button-{{$collection->id}}" onclick="toggleHide(['collection_edit_form-{{$collection->id}}','collection_edit_button-{{$collection->id}}',])"
                                 class="btn btn-outline-success mt-4">
                                 CANCELAR
                         </a>
@@ -41,7 +41,7 @@
                     </div>
                     <button id="colection_edit_button-{{$collection->id}}" onclick="toggleHide(['collection_edit_form-{{$collection->id}}',
                         '{{$collection->id}}',
-                        'collection_edit_button-{{$collection->id}}'])" 
+                        'collection_edit_button-{{$collection->id}}'])"
                         class="btn btn-outline-success">
                         EDITAR
                     </button>

@@ -105,4 +105,9 @@ class CategoryController extends Controller
         $categories=Category::all();
         return view ('admin.categories', ['categories' => $categories]);
     }
+
+
+
+
+
 }
