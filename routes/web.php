@@ -19,7 +19,7 @@ Auth::routes();
 
 // ADMIN ROUTES
 
-Route::get('/admin/Category/', 'CategoryController@adminIndex');
+Route::get('/admin/category/', 'CategoryController@adminIndex');
 
 // CATEGORY ROUTES
 
