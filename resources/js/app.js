@@ -4,6 +4,19 @@ require('./bootstrap');
 
 window.Vue = require('vue');
 
+import Vuetify from 'vuetify';
+
+
+//Routes 
+
+import Routes from  '@/js/routes.js'
+
+//Components File
+
+import App from '@js/views/App'
+
+Vue.use(Vuetify)
+
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue
@@ -33,5 +46,8 @@ Vue.component('category-selection', require('./components/CategorySelection.vue'
 
 const app = new Vue({
     el: '#app',
-    router
+    router: Routes,
+    render: h => h(App)
 });
+
+export default app;

@@ -10,6 +10,9 @@ use App\Collection;
 class AppController extends Controller
 {
 
+    public function index() {
+        return view('app');
+    }
     // HOME PUBLIC VIEW APP
     public function vueHome()
     {
@@ -26,7 +29,9 @@ class AppController extends Controller
         //     $category['collections'] = $category->collections;
 
         // }
-
+        return response()->json([
+           'categories' => $categories
+           ]);
         return $categories;
     }
     // TODO AT MODEL
