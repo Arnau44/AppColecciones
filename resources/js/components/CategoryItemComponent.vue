@@ -1,7 +1,9 @@
 <template>
+    <div class="card">
     <div class="item">
        <!-- <p>{{category.name}}</p> -->
        <img :src="category.icon">
+    </div>
     </div>
 </template>
 
@@ -16,18 +18,18 @@ export default {
 
 <style scoped>
     .item {
-        padding: 1em;
+        padding: .7em;
 
     }
 
     .item:hover {
         background-color:lightgrey;
         cursor: pointer;
-        border-radius: 1em;
+        border-radius: 0em;
 
     }
 
     img {
-        width: 40px;
+        width: 35px;
     }
 </style>

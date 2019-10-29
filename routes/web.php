@@ -66,6 +66,7 @@ Route::delete('/api/my_collections/delete/{collection}', 'CollectionController@a
 //VUE PUBLIC ROUTE
 
 Route::get('/app', 'AppController@vueHome');
+Route::get('/app/collection/{collection}', 'AppController@CollectionShow');
 
 
 Route::get('/api/home', 'AppController@apiHome');

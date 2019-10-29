@@ -2,7 +2,7 @@
 <div>
     <!-- <category-selection></category-selection> -->
     <category-list
-        @categorySelect = ''
+        @categorySelect = 'selectCategory()'
         ></category-list>
     <collection-list></collection-list>
     <footer >
@@ -13,6 +13,7 @@
             News
         </div>
     </footer>
+    
 </div>
 </template>
 

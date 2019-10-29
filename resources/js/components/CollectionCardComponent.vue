@@ -1,15 +1,25 @@
 <template>
-    <div class="card collection-card">
+    <div class="card ">
+        <div class="card-header title">{{collection.name}}</div>
+        <img src="" class = "card-img-top"
+        v-on:click="goToCollection()"
+        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTb2uP4V6vxSK235Y88V8C8nQSoe13BnzWzs_VIzNLW2ppA1KeN&s" alt="">        <div class="footer">
+            
+            <div class="likes"><love-button :collection = 'collection'></love-button></div>
+
+        </div>
+    </div>
+    <!-- <div class="card collection-card">
         <div class="title">{{collection.name}}</div>
         <div class = "image"
         v-on:click="goToCollection()"
         src="" alt=""></div>
         <div class="footer">
-
+            
             <div class="likes"><love-button :collection = 'collection'></love-button></div>
 
         </div>
-    </div>
+    </div> -->
 </template>
 
 <script>
@@ -17,7 +27,7 @@ export default {
     props: ['collection'],
     methods: {
         goToCollection(){
-            alert('go to collection' + this.collection.id)
+            location.href='/app/collection/'+this.collection.id
         }
     }
 }

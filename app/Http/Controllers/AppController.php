@@ -15,6 +15,11 @@ class AppController extends Controller
     {
         return view ('app.public.home');
     }
+    public function collectionShow()
+    {
+        return view ('app.public.collection');
+    }
+
 
     public function apiHome() {
 
