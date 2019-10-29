@@ -1963,7 +1963,21 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-/* harmony default export */ __webpack_exports__["default"] = ({});
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      items: [1, 1, 1]
+    };
+  }
+});
 
 /***/ }),
 
@@ -38628,7 +38642,19 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("h1", [_vm._v("Collection")])
+  return _c(
+    "div",
+    [
+      _c("div", { staticClass: "collection-front" }),
+      _vm._v(" "),
+      _vm._l(_vm.items, function(item) {
+        return _c("div", { key: item.index, staticClass: "card" }, [
+          _vm._v("item\n    ")
+        ])
+      })
+    ],
+    2
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
