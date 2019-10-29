@@ -1,7 +1,7 @@
 <template>
     <div class="card ">
         <div class="card-header title">{{collection.name}}</div>
-        <img src="" class = "card-img-top"
+        <img class = "card-img-top"
         v-on:click="goToCollection()"
         src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTb2uP4V6vxSK235Y88V8C8nQSoe13BnzWzs_VIzNLW2ppA1KeN&s" alt="">        <div class="footer">
             
