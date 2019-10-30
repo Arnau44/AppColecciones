@@ -40,4 +40,8 @@ class User extends Authenticatable
     public function collections() {
         return $this->hasMany(Collection::class);
     }
+
+    public function loveCollections() {
+        return $this->belongsToMany('App\Collection');
+    }
 }

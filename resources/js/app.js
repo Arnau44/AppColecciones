@@ -27,7 +27,12 @@ Vue.component('collection-list', require('./components/CollectionListComponent.v
 Vue.component('category-list', require('./components/CategoryListComponent.vue').default);
 Vue.component('category-item', require('./components/CategoryItemComponent.vue').default);
 Vue.component('home-page', require('./components/HomePageComponent.vue').default);
+
+//Buttons
 Vue.component('love-button', require('./components/buttons/LoveComponent.vue').default);
+Vue.component('edit-button', require('./components/buttons/EditButton.vue').default);
+Vue.component('delete-button', require('./components/buttons/DeleteButton.vue').default);
+
 Vue.component('category-selection', require('./components/CategorySelection.vue').default);
 
 /**

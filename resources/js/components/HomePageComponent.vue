@@ -2,9 +2,13 @@
 <div>
     <!-- <category-selection></category-selection> -->
     <category-list
-        @categorySelect = 'selectCategory()'
+       
+        @categorySelect = 'selectCategory'
+        
         ></category-list>
-    <collection-list></collection-list>
+    <collection-list
+       :categoryId = this.categoryId
+    ></collection-list>
     <footer >
         <div>
             Favorites
@@ -22,7 +26,16 @@ export default {
 
     data()  {
         return {
-
+            categoryId: 6
+        }
+    },
+    mounted() {
+      
+    },
+    methods: {
+        selectCategory(category) {
+            this.categoryId = category
+            //alert(this.categoryId )
         }
     }
 

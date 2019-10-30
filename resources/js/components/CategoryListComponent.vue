@@ -1,13 +1,13 @@
 <template>
     <div class="category-list">
-
-        <div v-for="category in categories"
+        
+        <div v-for="(category, id) in categories"
             :key='category.index'
-            v-on:click='onClickCategorySelect(category.id)'>
+            v-on:click='onClickCategorySelect(category.id, id)'>
         <category-item
-
             :category='category'
             >
+           
         </category-item>
         </div>
 
@@ -18,7 +18,8 @@
 export default {
     data() {
         return {
-            categories: []
+            categories: [],
+            categoryId: null
         }
     },
 
@@ -29,13 +30,14 @@ export default {
     methods: {
 
         getCategories() {
-            axios.get('api/home')
+            axios.get('/api/home')
                 .then(
                     (res) => this.categories = res.data
                 )
         },
         onClickCategorySelect(id) {
-            alert(id)
+            //alert (id)
+            this.$emit('categorySelect', id)
         }
     }
 

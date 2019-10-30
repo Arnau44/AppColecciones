@@ -1,34 +1,54 @@
 <template>
     <div class="card ">
-        <div class="card-header title">{{collection.name}}</div>
-        <img class = "card-img-top"
-        v-on:click="goToCollection()"
-        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTb2uP4V6vxSK235Y88V8C8nQSoe13BnzWzs_VIzNLW2ppA1KeN&s" alt="">        <div class="footer">
+       <div v-on:click="deleteOnClick()"
+                v-if= "collection.author"
+                class="">
+                <delete-button 
+                    :collection = 'collection'
+                    >
+                    </delete-button>
+
+        </div>
+        <div class="card-header title">
             
-            <div class="likes"><love-button :collection = 'collection'></love-button></div>
+            {{collection.name}}
+
+        </div>
+        <img    class = "card-img-top"
+                v-on:click="goToCollection()"
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTb2uP4V6vxSK235Y88V8C8nQSoe13BnzWzs_VIzNLW2ppA1KeN&s" alt="">        <div class="footer">
+            
+            <div class="likes">
+                <love-button :collection = 'collection'></love-button>
+            </div>
+            <div 
+                v-if= "collection.author"
+                class="likes">
+                <edit-button :collection = 'collection'></edit-button>
+            </div>
+            
 
         </div>
     </div>
-    <!-- <div class="card collection-card">
-        <div class="title">{{collection.name}}</div>
-        <div class = "image"
-        v-on:click="goToCollection()"
-        src="" alt=""></div>
-        <div class="footer">
-            
-            <div class="likes"><love-button :collection = 'collection'></love-button></div>
-
-        </div>
-    </div> -->
+    
 </template>
 
 <script>
 export default {
     props: ['collection'],
     methods: {
+        
         goToCollection(){
+            
             location.href='/app/collection/'+this.collection.id
+        },
+
+        deleteOnClick() {
+            
+            axios.delete(`/api/collection/${this.collection.id}`)
+                    .then(this.$emit('delete'));
         }
+
     }
 }
 </script>

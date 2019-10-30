@@ -61,7 +61,8 @@ Route::delete('/home/image/{image}');
 Route::post('/api/collections', 'CollectionController@apiStore');
 Route::get('/api/my_collections', 'CollectionController@apiIndexAuth');
 Route::get('/api/my_collections/{collection}', 'CollectionController@apiShow');
-Route::delete('/api/my_collections/delete/{collection}', 'CollectionController@apiDelete');
+
+Route::delete('/api/collection/{collection}', 'AppController@destroy');
 
 //VUE PUBLIC ROUTE
 

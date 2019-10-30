@@ -1,23 +1,44 @@
 <template>
+    
     <div class="collection-list">
-        <collection-card v-for='collection in collections'
-            :key="collection.index"
-            :collection='collection'></collection-card>
+        
+        <collection-card 
+            v-for='(collection, index) in collections'
+            :key="collection.id"
+            :collection='collection'
+            class=""
+            @delete = "deleteCollection(index)">
+            </collection-card>
+
     </div>
+
 </template>
 
 <script>
+
 export default {
-    props: [],
+    props: {
+        categoryId: Number
+    },
     data()  {
         return {
             collections: []
         }
     },
     mounted() {
-        this.importCategoryData(1);
+
+        this.importCategoryData(this.categoryId);
+    
     },
+
+    watch: {
+        categoryId: function () {
+            this.importCategoryData(this.categoryId);
+        },
+    },
+
     methods: {
+
         importCategoryData(id){
             axios.get(
             `/api/category/collections/${id}`)
@@ -25,10 +46,13 @@ export default {
                 {
                     this.collections = response.data}
                 )
+        },
+        deleteCollection(index){
+            this.collections.splice(index,1)
         }
     }
-
 }
+
 </script>
 
 <style>
@@ -37,7 +61,7 @@ export default {
         width: 90%;
         margin: 0 auto;
         display: grid;
-        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-template-columns: 1fr 1fr;
         gap:1em;
     }
 
