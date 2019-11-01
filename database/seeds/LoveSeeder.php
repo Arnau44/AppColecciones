@@ -13,7 +13,7 @@ class LoveSeeder extends Seeder
     {
         for ($i = 0; $i<50; $i++){
 
-            DB::table('collections_users')->insert([
+            DB::table('collection_user')->insert([
                 'user_id' => App\User::all()->random()->id,
                 'collection_id' => App\Collection::all()->random()->id,
                 

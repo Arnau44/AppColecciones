@@ -55,21 +55,23 @@ class AppController extends Controller
                 $collection['author'] = false;
                 $collection['userLove'] = false;
                 
+                
                 if($collection->user->id == auth()->user()->id){
                     
                     $collection['author'] = true;  
                 }
                 
-                if($collection->userLove->id == auth()->user()->id){
+                if($collection->isCollectionLoveByUser(auth()->user())){
                     
-                    $collection['userLove'] = true;  
-                }
+                     $collection['userLove'] = true;  
+                 }
+                
 
             }
         
         
         }
-        return $collections;
+        return response()->json($collections[0]->loveUsers);
     }
 
     public function apiCollectionShow(Collection $collection) {

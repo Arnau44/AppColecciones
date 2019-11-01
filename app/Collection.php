@@ -47,5 +47,19 @@ class Collection extends Model implements Searchable
          );
 
     }
+    public function isCollectionLoveByUser(User $user) {
+        $result = false;
+        $collections = Collection::all();
+        $users = $collections[118]->loveUsers->pivot->id;
+        dd($users);
+        $collection = $collections[118];
+        dd($collection->user_id);
+        if (in_array($user, $collection->loveUsers())){
+
+            return $result = true;
+        }
+
+        return $result;
+    }
 
 }

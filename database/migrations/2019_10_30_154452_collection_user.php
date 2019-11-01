@@ -13,7 +13,7 @@ class CollectionUser extends Migration
      */
     public function up()
     {
-        Schema::create('collections_users', function (Blueprint $table) {
+        Schema::create('collection_user', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->bigInteger('collection_id'); 
             $table->bigInteger('user_id'); 
