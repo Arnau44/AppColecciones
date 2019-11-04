@@ -3,7 +3,7 @@
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
                 <form-component @new="addComment"></form-component>
-                <comments-component v-for="(comment, index) in comments" 
+                <comments-component  v-for="(comment, index) in comments.slice().reverse()" 
                 :key="comment.id"
                 :comment="comment"
                 @update="updateComment(index, arguments)"
@@ -19,7 +19,7 @@
     export default {
         data(){
             return {
-                comments:[]
+                comments:[],
             }
         },
         mounted() {

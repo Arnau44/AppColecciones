@@ -5,7 +5,7 @@
             <div class="panel-body">
 
             <input v-if="editMode" type="text" class="form-control" v-model="comment.content">
-            <p  v-else>{{comment.content}}</p>
+            <p  v-else id="reves">{{comment.content}}</p>
 
             </div>
 
@@ -56,3 +56,9 @@
         }
     }
 </script>
+<style>
+#reves{
+    display: flex;
+    flex-direction: column-reverse;
+}
+</style>
