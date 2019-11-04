@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Comment;
 
 class CommentController extends Controller
 {
@@ -19,15 +20,7 @@ public function __construct()
 
 public function index()
 {
-    //
-}
-
-/**
- * @return \Illuminate\Http\Comment
- */
-public function create()
-{
-    //
+    return Comment::all()->where('user_id', auth()->id());
 }
 
 /**
@@ -37,20 +30,11 @@ public function create()
 public function store(Request $request)
 {
     $comment = new Comment;
-    $comment->user_id = Auth::user()->id;
     $comment->content = $request->content;
-    $comment->collection_id = $request->collection_id;
+    $comment->user_id = auth()->id();
+    $comment->collection_id = 8;
     $comment->save();
-    return redirect()->back();
-}
-
-/**
- * @param \App\Comment $comment
- * @return \Illuminate\Http\Response
- */
-public function show(Comment $comment)
-{
-    //
+    return $comment;
 }
 
 /**
@@ -67,18 +51,21 @@ public function edit(Comment $comment)
  * @param \App\Comment $comment
  * @return \Illuminate\Http\Response
  */
-public function update(Request $request, Comment $comment)
+public function update(Request $request, $id)
 {
-    $response->update($request->all());
-    return redirect()->back();
+    
+    $comment = Comment::find($id);
+    $comment->content = $request->content;
+    $comment->save();
+    return $comment;
 }
 /**
  * @param \App\Comment $comment
  * @return \Illuminate\Http\Comment
  */
-public function destroy(Comment $comment)
+public function destroy($id)
 {
+    $comment = Comment::find($id);
     $comment->delete();
-    return redirect()->back();
 }
 }

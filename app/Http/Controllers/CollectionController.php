@@ -15,11 +15,15 @@ class CollectionController extends Controller
      */
     public function indexAuthor()
     {
-
+        
         //$collections = Collection::all();
         return view('self.Collections');
     }
+    public function indexVue(){
 
+        return view('self.Collection');
+
+    }
     /**
      * Show the form for creating a new resource.
      *

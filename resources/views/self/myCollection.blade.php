@@ -1,24 +1,36 @@
-<?php    
-    function findLinkInText($text) {
-        $reg_exUrl = "/(http|https|ftp|ftps)\:\/\/[a-zA-Z0-9\-\.]+\.[a-zA-Z]{2,3}(\/\S*)?/";
+@extends('layouts.app')
+@section('content')
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
 
-            if(preg_match($reg_exUrl, $text, $url)) {
-                return preg_replace($reg_exUrl, "<a href=".$url[0]." target=_blank>".$url[0]."</a> ", $text);
-            } 
+            <div class="panel panel-default">
+                <div class="panel-heading">Comentarios</div>
 
-            return $text;
-}
-?>          
+                <div class="panel-body">
+                    @if (session('status'))
+                        <div class="alert alert-success">
+                        {{session('status')}}
+                        </div>
+                    @endif
 
-<h3> Comentarios </h3>
+                    <form action="">
+                        <div class="form-group">
+                            <label for="comentario">Comentario</label>
+                            <input type="text" class="form-control" name="comentarios">
+                        </div>
+                    </form>
+                </div>
+            </div>
+            
+                <div class="panel panel-default">
+                    <div class="panel-heading">Publicado el 29/10/2019</div>
 
-@if (Auth::user())
-@foreach ($collection->comments as $comment)
-<div>
-        <div class="container">
-        <a href="/home/user/{{$comment->user->id}}"><strong>{{$comment->user->name}}</strong></a>
-        <div id="comment_content-{{$comment->id}}"><?php echo findLinkInText($comment->content)?></div>
-        @endforeach
-    
-    
-@endif
+                    <div class="panel body">
+                    <p>Este es el primer comentario</p>
+                    </div>
+                </div>
+
+        </div>
+    </div>
+</div>

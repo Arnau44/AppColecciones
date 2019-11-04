@@ -38,11 +38,8 @@
             </li>   
         @endforeach
     </ul>
-    @foreach ($collection->comments as $comment)
-<div>
-        <div class="container">
-        <a href="/home/user/{{$comment->user->id}}"><strong>{{$comment->user->name}}</strong></a>
-        <div id="comment_content-{{$comment->id}}"><?php echo findLinkInText($comment->content)?></div>
-        @endforeach
-</div>
+
+  <div class="container">
+    <my-comments-component></my-comments-component>
+    </div>
 @endsection

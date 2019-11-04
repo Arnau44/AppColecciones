@@ -38,6 +38,7 @@ Route::get('/home/Collection/crear', 'CollectionController@create')->name('colle
 Route::delete('/home/Collection/{Collection}', 'CollectionController@destroy')->name('collection.destroy');
 Route::post('/home/Collection', 'CollectionController@store')->name('collection.store');
 
+Route::get('/home/MyCollecction', 'CollectionController@indexVue');
 
 //COLLECTION PRIVATE ROUTES
 Route::get('/my_collections', 'CollectionController@indexAuthor');
@@ -57,3 +58,4 @@ Route::post('/home/comment', 'CommentController@store');
 Route::delete('/home/comment/{comment}', 'CommentController@destroy');
 Route::get('/home/comment/{comment}/edit', 'CommentController@edit');
 Route::put('/home/comment/{comment}', 'CommentController@update');
+Route::apiResource('comments', 'CommentController');

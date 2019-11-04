@@ -8,7 +8,8 @@ use App\Collection;
 
 class Comment extends Model
 {
-    public function collection(){
+    public function collection()
+    {
         return $this->belongsTo(Collection::class);
     }
 }

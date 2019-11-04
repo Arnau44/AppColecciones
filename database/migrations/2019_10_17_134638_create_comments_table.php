@@ -3,6 +3,8 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use App\Collection;
+use App\Comment;
 
 class CreateCommentsTable extends Migration
 {
@@ -17,9 +19,7 @@ class CreateCommentsTable extends Migration
 
             $table->bigIncrements('id');
             $table->bigInteger('collection_id')->nullable();
-            $table->bigInteger('user_id');
-            $table->bigInteger('comment_id')->nullable();
-            $table->bigInteger('item_id')->nullable();
+            $table->bigInteger('user_id')->unsigned();
             $table->text('content');
             $table->timestamps();
         });
